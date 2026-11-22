@@ -1,0 +1,50 @@
+﻿@model DSW1_T1_CARRILLO_RAZA_FERNANDO_JOSE.Models.Libro
+
+@{
+    ViewData["Title"] = "Eliminar libro";
+}
+
+<h2>Eliminar libro</h2>
+
+<hr />
+
+<div class="alert alert-warning">
+    ¿Estás seguro de que deseas eliminar este libro?
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <dl class="row">
+            <dt class="col-sm-4">ID</dt>
+            <dd class="col-sm-8">@Model.Id</dd>
+
+            <dt class="col-sm-4">Nombre del libro</dt>
+            <dd class="col-sm-8">@Model.NombreLibro</dd>
+
+            <dt class="col-sm-4">Autor</dt>
+            <dd class="col-sm-8">@Model.Autor</dd>
+
+            <dt class="col-sm-4">Editorial</dt>
+            <dd class="col-sm-8">@Model.NombreEditorial</dd>
+
+            <dt class="col-sm-4">ISDN</dt>
+            <dd class="col-sm-8">@Model.ISDN</dd>
+        </dl>
+
+        <form asp-controller="Libro"
+              asp-action="Eliminar"
+              asp-route-id="@Model.Id"
+              method="post">
+
+            <input type="hidden" asp-for="Id" />
+
+            <button type="submit" class="btn btn-danger">
+                Confirmar eliminación
+            </button>
+
+            <a asp-action="Index" class="btn btn-secondary">
+                Cancelar
+            </a>
+        </form>
+    </div>
+</div>

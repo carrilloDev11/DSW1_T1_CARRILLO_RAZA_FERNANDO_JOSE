@@ -1,0 +1,61 @@
+﻿@model DSW1_T1_CARRILLO_RAZA_FERNANDO_JOSE.Models.Libro
+
+@{
+    ViewData["Title"] = "Editar libro";
+}
+
+<h2>Editar libro</h2>
+
+<hr />
+
+<div class="row">
+    <div class="col-md-6">
+        <form asp-controller="Libro" asp-action="Editar" asp-route-id="@Model.Id" method="post">
+
+            <input type="hidden" asp-for="Id" />
+
+            <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+            <div class="mb-3">
+                <label asp-for="NombreLibro" class="form-label">Nombre del libro</label>
+                <input asp-for="NombreLibro" class="form-control" />
+                <span asp-validation-for="NombreLibro" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Autor" class="form-label">Autor</label>
+                <input asp-for="Autor" class="form-control" />
+                <span asp-validation-for="Autor" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="NombreEditorial" class="form-label">Editorial</label>
+                <input asp-for="NombreEditorial" class="form-control" />
+                <span asp-validation-for="NombreEditorial" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="ISDN" class="form-label">ISDN</label>
+                <input asp-for="ISDN" class="form-control" />
+                <span asp-validation-for="ISDN" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <button type="submit" class="btn btn-primary">
+                    Guardar cambios
+                </button>
+
+                <a asp-action="Index" class="btn btn-secondary">
+                    Volver al listado
+                </a>
+            </div>
+
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
